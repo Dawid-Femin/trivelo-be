@@ -12,7 +12,5 @@ export const getTypeOrmConfig = async (
   database: configService.get<string>('DB_NAME'),
   autoLoadEntities: true,
   synchronize: configService.get<string>('DATABASE_SYNCHRONIZE') === 'true',
-  ssl: {
-    rejectUnauthorized: false,
-  },
+  ssl: false,
 });

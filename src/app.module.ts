@@ -13,6 +13,7 @@ import jwtConfig from './config/jwt.config';
 import { getTypeOrmConfig } from './database/typeorm.config';
 import { UserModule } from './modules/user/user.module';
 import Joi from 'joi';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -44,6 +45,7 @@ import Joi from 'joi';
     }),
 
     UserModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
