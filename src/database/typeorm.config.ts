@@ -2,7 +2,7 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { ConfigService } from '@nestjs/config';
 
 export const getTypeOrmConfig = async (
-  configService: ConfigService,
+    configService: ConfigService,
 ): Promise<TypeOrmModuleOptions> => ({
   type: 'postgres',
   host: configService.get<string>('DB_HOST'),
@@ -12,4 +12,7 @@ export const getTypeOrmConfig = async (
   database: configService.get<string>('DB_NAME'),
   autoLoadEntities: true,
   synchronize: configService.get<string>('DATABASE_SYNCHRONIZE') === 'true',
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
